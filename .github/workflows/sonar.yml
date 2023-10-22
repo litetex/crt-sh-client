@@ -16,7 +16,7 @@ on:
       - 'config/**'
 
 env:
-  SONARCLOUD_ORG: ${{ github.event.organization.login }}
+  SONARCLOUD_ORG: litetex
   SONARCLOUD_HOST: https://sonarcloud.io
 
 jobs:
