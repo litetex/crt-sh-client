@@ -4,32 +4,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.xdev-software</groupId>
-	<artifactId>openapi-client-maven-template</artifactId>
+	<groupId>net.litetex</groupId>
+	<artifactId>crt-sh-client</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>openapi-client-maven-template</name>
-	<description>openapi-client-maven-template</description>
-	<url>https://github.com/xdev-software/openapi-client-maven-template</url>
+	<name>crt-sh-client</name>
+	<description>crt-sh-client</description>
+	<url>https://github.com/litetex/crt-sh-client</url>
 
 	<scm>
-		<url>https://github.com/xdev-software/openapi-client-maven-template</url>
-		<connection>https://github.com/xdev-software/openapi-client-maven-template.git</connection>
+		<url>https://github.com/litetex/crt-sh-client</url>
+		<connection>https://github.com/litetex/crt-sh-client.git</connection>
 	</scm>
 
 	<inceptionYear>2023</inceptionYear>
 
-	<organization>
-		<name>XDEV Software</name>
-		<url>https://xdev.software</url>
-	</organization>
-
 	<developers>
 		<developer>
-			<name>XDEV Software</name>
-			<organization>XDEV Software</organization>
-			<url>https://xdev.software</url>
+			<name>litetex</name>
+			<url>https://github.com/litetex</url>
 		</developer>
 	</developers>
 
@@ -285,7 +279,7 @@
 		<profile>
 			<id>openapi-generator</id>
 			<properties>
-				<basePackage>software.xdev.INSERT_NAME_HERE</basePackage>
+				<basePackage>net.litetex.crtsh</basePackage>
 
 				<generatedDirRelative>src/generated/java</generatedDirRelative>
 				<generatedDir>${project.basedir}/${generatedDirRelative}</generatedDir>

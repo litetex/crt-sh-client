@@ -4,8 +4,6 @@ We would absolutely love to get the community involved, and we welcome any form 
 
 ### Communication channels
 * Communication is primarily done using issues.
-* If you need support as soon as possible and you can't wait for any pull request, feel free to use [our support](https://xdev.software/en/services/support).
-* As a last resort measure or on otherwise important matter you may also [contact us directly](https://xdev.software/en/about-us/contact).
 
 ### Ways to help
 * **Report bugs**<br/>Create an issue or send a pull request
@@ -33,10 +31,10 @@ You should have the following things installed:
   * Ensure that the JDK/Java-Version is correct
 
 
-## Releasing [![Build](https://img.shields.io/github/actions/workflow/status/xdev-software/openapi-client-maven-template/release.yml?branch=master)](https://github.com/xdev-software/openapi-client-maven-template/actions/workflows/release.yml)
+## Releasing [![Build](https://img.shields.io/github/actions/workflow/status/litetex/crt-sh-client/release.yml?branch=master)](https://github.com/litetex/crt-sh-client/actions/workflows/release.yml)
 
 Before releasing:
-* Consider doing a [test-deployment](https://github.com/xdev-software/openapi-client-maven-template/actions/workflows/test-deploy.yml?query=branch%3Adevelop) before actually releasing.
+* Consider doing a [test-deployment](https://github.com/litetex/crt-sh-client/actions/workflows/test-deploy.yml?query=branch%3Adevelop) before actually releasing.
 * Check the [changelog](CHANGELOG.md)
 
 If the ``develop`` is ready for release, create a pull request to the ``master``-Branch and merge the changes

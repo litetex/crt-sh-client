@@ -5,7 +5,7 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: XDEV Checks
+    Checkstyle-Configuration: Checks
     Description: none
 -->
 <module name="Checker">
@@ -300,7 +300,7 @@
    </module>
    <module name="SuppressionSingleFilter">
      <property name="checks" value="."/>
-     <property name="files" value="[\\/]software.xdev[\\/].*\.java$"/>
+     <property name="files" value="[\\/]net.litetex[\\/].*\.java$"/>
    </module>
    <module name="SuppressionSingleFilter">
      <property name="checks" value="MagicNumberCheck"/>
