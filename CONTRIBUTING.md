@@ -34,10 +34,10 @@ You should have the following things installed:
 ## Releasing [![Build](https://img.shields.io/github/actions/workflow/status/litetex/crt-sh-client/release.yml?branch=master)](https://github.com/litetex/crt-sh-client/actions/workflows/release.yml)
 
 Before releasing:
-* Consider doing a [test-deployment](https://github.com/litetex/crt-sh-client/actions/workflows/test-deploy.yml?query=branch%3Adevelop) before actually releasing.
+* Consider doing a [test-deployment](https://github.com/litetex/crt-sh-client/actions/workflows/test-deploy.yml?query=branch%3Adev) before actually releasing.
 * Check the [changelog](CHANGELOG.md)
 
-If the ``develop`` is ready for release, create a pull request to the ``master``-Branch and merge the changes
+If ``dev`` is ready for release, create a pull request to the ``master``-Branch and merge the changes
 
 When the release is finished do the following:
-* Merge the auto-generated PR (with the incremented version number) back into the ``develop``
+* Merge the auto-generated PR (with the incremented version number) back into the ``dev``
