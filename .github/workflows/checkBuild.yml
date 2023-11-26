@@ -6,10 +6,16 @@ on:
     branches: [ dev ]
     paths-ignore: 
       - '**.md'
+      - '.idea/**'
+      - '.run/**'
+      - 'assets/**'
   pull_request:
     branches: [ dev ]
     paths-ignore: 
       - '**.md'
+      - '.idea/**'
+      - '.run/**'
+      - 'assets/**'
 
 env:
   PRIMARY_MAVEN_MODULE: ${{ github.event.repository.name }}

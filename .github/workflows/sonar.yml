@@ -6,14 +6,16 @@ on:
     branches: [ dev ]
     paths-ignore: 
       - '**.md'
+      - '.idea/**'
+      - '.run/**'
       - 'assets/**'
-      - 'config/**'
   pull_request:
     types: [opened, synchronize, reopened]
     paths-ignore: 
       - '**.md'
+      - '.idea/**'
+      - '.run/**'
       - 'assets/**'
-      - 'config/**'
 
 env:
   SONARCLOUD_ORG: litetex
