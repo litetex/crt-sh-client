@@ -84,6 +84,8 @@ components:
           format: int64
         issuer_name:
           type: string
+        common_name:
+          type: string
         name_value:
           type: string
         id:
@@ -100,3 +102,5 @@ components:
           description: 'This is a date however the offset at the end (Z) is missing (as specified in RFC3339)'
         serial_number:
           type: string
+        result_count:
+          type: number

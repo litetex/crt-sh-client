@@ -33,12 +33,14 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   Certificate.JSON_PROPERTY_ISSUER_CA_ID,
   Certificate.JSON_PROPERTY_ISSUER_NAME,
+  Certificate.JSON_PROPERTY_COMMON_NAME,
   Certificate.JSON_PROPERTY_NAME_VALUE,
   Certificate.JSON_PROPERTY_ID,
   Certificate.JSON_PROPERTY_ENTRY_TIMESTAMP,
   Certificate.JSON_PROPERTY_NOT_BEFORE,
   Certificate.JSON_PROPERTY_NOT_AFTER,
-  Certificate.JSON_PROPERTY_SERIAL_NUMBER
+  Certificate.JSON_PROPERTY_SERIAL_NUMBER,
+  Certificate.JSON_PROPERTY_RESULT_COUNT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Certificate {
@@ -47,6 +49,9 @@ public class Certificate {
 
   public static final String JSON_PROPERTY_ISSUER_NAME = "issuer_name";
   private String issuerName;
+
+  public static final String JSON_PROPERTY_COMMON_NAME = "common_name";
+  private String commonName;
 
   public static final String JSON_PROPERTY_NAME_VALUE = "name_value";
   private String nameValue;
@@ -65,6 +70,9 @@ public class Certificate {
 
   public static final String JSON_PROPERTY_SERIAL_NUMBER = "serial_number";
   private String serialNumber;
+
+  public static final String JSON_PROPERTY_RESULT_COUNT = "result_count";
+  private BigDecimal resultCount;
 
   public Certificate() {
   }
@@ -118,6 +126,32 @@ public class Certificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerName(String issuerName) {
     this.issuerName = issuerName;
+  }
+
+
+  public Certificate commonName(String commonName) {
+    
+    this.commonName = commonName;
+    return this;
+  }
+
+   /**
+   * Get commonName
+   * @return commonName
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMON_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCommonName() {
+    return commonName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMMON_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCommonName(String commonName) {
+    this.commonName = commonName;
   }
 
 
@@ -276,6 +310,32 @@ public class Certificate {
     this.serialNumber = serialNumber;
   }
 
+
+  public Certificate resultCount(BigDecimal resultCount) {
+    
+    this.resultCount = resultCount;
+    return this;
+  }
+
+   /**
+   * Get resultCount
+   * @return resultCount
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getResultCount() {
+    return resultCount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESULT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResultCount(BigDecimal resultCount) {
+    this.resultCount = resultCount;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -287,17 +347,19 @@ public class Certificate {
     Certificate certificate = (Certificate) o;
     return Objects.equals(this.issuerCaId, certificate.issuerCaId) &&
         Objects.equals(this.issuerName, certificate.issuerName) &&
+        Objects.equals(this.commonName, certificate.commonName) &&
         Objects.equals(this.nameValue, certificate.nameValue) &&
         Objects.equals(this.id, certificate.id) &&
         Objects.equals(this.entryTimestamp, certificate.entryTimestamp) &&
         Objects.equals(this.notBefore, certificate.notBefore) &&
         Objects.equals(this.notAfter, certificate.notAfter) &&
-        Objects.equals(this.serialNumber, certificate.serialNumber);
+        Objects.equals(this.serialNumber, certificate.serialNumber) &&
+        Objects.equals(this.resultCount, certificate.resultCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(issuerCaId, issuerName, nameValue, id, entryTimestamp, notBefore, notAfter, serialNumber);
+    return Objects.hash(issuerCaId, issuerName, commonName, nameValue, id, entryTimestamp, notBefore, notAfter, serialNumber, resultCount);
   }
 
   @Override
@@ -306,12 +368,14 @@ public class Certificate {
     sb.append("class Certificate {\n");
     sb.append("    issuerCaId: ").append(toIndentedString(issuerCaId)).append("\n");
     sb.append("    issuerName: ").append(toIndentedString(issuerName)).append("\n");
+    sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    nameValue: ").append(toIndentedString(nameValue)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    entryTimestamp: ").append(toIndentedString(entryTimestamp)).append("\n");
     sb.append("    notBefore: ").append(toIndentedString(notBefore)).append("\n");
     sb.append("    notAfter: ").append(toIndentedString(notAfter)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
+    sb.append("    resultCount: ").append(toIndentedString(resultCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -379,6 +443,16 @@ public class Certificate {
       }
     }
 
+    // add `common_name` to the URL query string
+    if (getCommonName() != null) {
+      try {
+        joiner.add(String.format("%scommon_name%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCommonName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `name_value` to the URL query string
     if (getNameValue() != null) {
       try {
@@ -433,6 +507,16 @@ public class Certificate {
     if (getSerialNumber() != null) {
       try {
         joiner.add(String.format("%sserial_number%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSerialNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `result_count` to the URL query string
+    if (getResultCount() != null) {
+      try {
+        joiner.add(String.format("%sresult_count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getResultCount()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
