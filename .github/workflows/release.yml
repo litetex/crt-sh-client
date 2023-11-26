@@ -229,6 +229,6 @@ jobs:
         gh_pr_up() { 
           gh pr create "$@" || gh pr edit "$@" 
         }
-        gh_pr_up -B "develop" \
+        gh_pr_up -B "dev" \
           --title "Sync back" \
           --body "An automated PR to sync changes back"
