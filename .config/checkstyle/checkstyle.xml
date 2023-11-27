@@ -6,6 +6,8 @@
 	<property name="fileExtensions" value="java"/>
 	<property name="severity" value="error"/>
 
+	<property name="tabWidth" value="4"/>
+
 	<module name="FileLength"/>
 	<module name="LineLength">
 		<property name="max" value="120"/>
@@ -33,8 +35,6 @@
 	<module name="SuppressWarningsFilter"/>
 
 	<module name="TreeWalker">
-		<property name="tabWidth" value="4"/>
-
 		<!-- Checks - sorted alphabetically -->
 		<module name="ArrayTypeStyle"/>
 		<module name="AvoidStarImport"/>
