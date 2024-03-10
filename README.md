@@ -7,7 +7,7 @@
 
 # <img src="https://crt.sh/favicon.ico" height="28" /> [crt-sh](https://crt.sh)-client
 
-Java client for [crt.sh](https://crt.sh).
+A Java client for [crt.sh](https://crt.sh).
 
 This client [is generated](./crt-sh-client/pom.xml) from an [``openapi.yml``](./openapi/openapi.yml) using [OpenAPI Generator](https://openapi-generator.tech/).
 
@@ -22,3 +22,5 @@ See the [contributing guide](./CONTRIBUTING.md) for detailed instructions on how
 
 ## Dependencies and Licenses
 View the [license of the current project](LICENSE) or the [summary including all dependencies](https://litetex.github.io/crt-sh-client/dependencies/)
+
+<sub>Disclaimer: This is not an official crt.sh product and not associated with crt.sh</sub>
