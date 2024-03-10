@@ -6,6 +6,8 @@ on:
     branches: [ dev ]
     paths-ignore: 
       - '**.md'
+      - '.config/**'
+      - '.github/**'
       - '.idea/**'
       - '.run/**'
       - 'assets/**'
@@ -13,6 +15,8 @@ on:
     branches: [ dev ]
     paths-ignore: 
       - '**.md'
+      - '.config/**'
+      - '.github/**'
       - '.idea/**'
       - '.run/**'
       - 'assets/**'

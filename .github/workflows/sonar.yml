@@ -6,6 +6,8 @@ on:
     branches: [ dev ]
     paths-ignore: 
       - '**.md'
+      - '.config/**'
+      - '.github/**'
       - '.idea/**'
       - '.run/**'
       - 'assets/**'
@@ -13,6 +15,8 @@ on:
     types: [opened, synchronize, reopened]
     paths-ignore: 
       - '**.md'
+      - '.config/**'
+      - '.github/**'
       - '.idea/**'
       - '.run/**'
       - 'assets/**'
@@ -53,7 +57,11 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build with Maven
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ env.SONARCLOUD_ORG }}_${{ github.event.repository.name }} -Dsonar.organization=${{ env.SONARCLOUD_ORG }} -Dsonar.host.url=${{ env.SONARCLOUD_HOST }}
+        run: |
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+           -Dsonar.projectKey=${{ env.SONARCLOUD_ORG }}_${{ github.event.repository.name }} \
+           -Dsonar.organization=${{ env.SONARCLOUD_ORG }} \
+           -Dsonar.host.url=${{ env.SONARCLOUD_HOST }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
