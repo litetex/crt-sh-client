@@ -1,5 +1,5 @@
 # 1.0.2
-* Update dependencies
+* Updated dependencies
 
 # 1.0.1
 * Added more fields to response
