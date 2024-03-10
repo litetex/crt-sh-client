@@ -42,6 +42,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+		<generatedDirRelative>src/generated/java</generatedDirRelative>
+
 		<!-- Ignore generated code -->
 		<sonar.exclusions>
 			src/generated/**
@@ -224,7 +226,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>src/generated/java</source>
+								<source>${generatedDirRelative}</source>
 							</sources>
 						</configuration>
 					</execution>
@@ -279,9 +281,8 @@
 		<profile>
 			<id>openapi-generator</id>
 			<properties>
-				<basePackage>net.litetex.crtsh</basePackage>
+				<componentName>crtsh</componentName>
 
-				<generatedDirRelative>src/generated/java</generatedDirRelative>
 				<generatedDir>${project.basedir}/${generatedDirRelative}</generatedDir>
 				<openApiRelativeGeneratorDir>src/gen</openApiRelativeGeneratorDir>
 				<openApiGeneratorDir>
@@ -334,9 +335,9 @@
 									<configOptions>
 										<sourceFolder>${openApiRelativeGeneratorDir}</sourceFolder>
 										<library>apache-httpclient</library>
-										<apiPackage>${basePackage}.api</apiPackage>
-										<modelPackage>${basePackage}.model</modelPackage>
-										<invokerPackage>${basePackage}.client</invokerPackage>
+										<apiPackage>net.litetex.${componentName}.api</apiPackage>
+										<modelPackage>net.litetex.${componentName}.model</modelPackage>
+										<invokerPackage>net.litetex.${componentName}.client</invokerPackage>
 										<!-- Otherwise throw and catch everywhere -->
 										<useRuntimeException>true</useRuntimeException>
 										<!-- Some fields of API have been ignored because they are unused -->
@@ -345,12 +346,12 @@
 										<!-- Use newer Jakarta EE instead of Javax -->
 										<useJakartaEe>true</useJakartaEe>
 										<hideGenerationTimestamp>true</hideGenerationTimestamp>
-										<!-- No tests and documentation because we don't use that -->
-										<generateModelTests>false</generateModelTests>
-										<generateApiTests>false</generateApiTests>
-										<generateModelDocumentation>false</generateModelDocumentation>
-										<generateApiDocumentation>false</generateApiDocumentation>
 									</configOptions>
+									<!-- No tests and documentation because we don't use that -->
+									<generateModelTests>false</generateModelTests>
+									<generateApiTests>false</generateApiTests>
+									<generateModelDocumentation>false</generateModelDocumentation>
+									<generateApiDocumentation>false</generateApiDocumentation>
 								</configuration>
 							</execution>
 						</executions>
@@ -374,6 +375,59 @@
 										</resource>
 									</resources>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>io.github.floverfelt</groupId>
+						<artifactId>find-and-replace-maven-plugin</artifactId>
+						<version>1.1.0</version>
+						<executions>
+							<execution>
+								<id>remove-unused-import-com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>find-and-replace</goal>
+								</goals>
+								<configuration>
+									<replacementType>file-contents</replacementType>
+									<baseDir>${generatedDirRelative}/software/xdev/${componentName}/client/</baseDir>
+									<fileMask>ApiClient.java</fileMask>
+									<!-- @formatter:off DO NOT INTRODUCE LINE BREAK -->
+									<findRegex>^(import com\.fasterxml\.jackson\.jaxrs\.json\.JacksonJsonProvider;)$</findRegex>
+									<!-- Can't be removed as the plugin isn't supporting empty values -->
+									<replaceValue>// $1</replaceValue>
+									<!-- @formatter:on -->
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>checkstyle</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<version>3.3.1</version>
+						<dependencies>
+							<dependency>
+								<groupId>com.puppycrawl.tools</groupId>
+								<artifactId>checkstyle</artifactId>
+								<version>10.14.0</version>
+							</dependency>
+						</dependencies>
+						<configuration>
+							<configLocation>../.config/checkstyle/checkstyle.xml</configLocation>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>check</goal>
+								</goals>
 							</execution>
 						</executions>
 					</plugin>
