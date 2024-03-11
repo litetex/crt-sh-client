@@ -20,7 +20,7 @@
 
 		<mainClass>net.litetex.Application</mainClass>
 
-		<log4j2-version>2.23.0</log4j2-version>
+		<log4j2-version>2.23.1</log4j2-version>
 	</properties>
 
 	<dependencies>
