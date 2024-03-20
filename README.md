@@ -4,8 +4,10 @@
 [![API Specification Editor](https://img.shields.io/badge/API--Spec-Editor-85ea2d?logo=swagger)](https://editor.swagger.io/?url=https://raw.githubusercontent.com/litetex/crt-sh-client/dev/openapi/openapi.yml)
 [![crt.sh Website](https://img.shields.io/website?up_color=00b373&url=https%3A%2F%2Fcrt.sh&label=crt.sh%20Website)](https://crt.sh)
 
-
 # <img src="https://crt.sh/favicon.ico" height="28" /> [crt-sh](https://crt.sh)-client
+
+> [!IMPORTANT]  
+> This repository was moved to [litetex-oss/crt-sh-client](https://github.com/litetex-oss/crt-sh-client)
 
 A Java client for [crt.sh](https://crt.sh).
 
